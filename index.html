@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evo Sim</title>
+    <link rel="icon" href="data:," />
+    <style>:root{--bg:#0b0f1a;--panel:#131a2a;--text:#dde3f0;--muted:#8090b0;--accent:#fc5}*{box-sizing:border-box}body{background:var(--bg);color:var(--text);height:100vh;margin:0;font:14px/1.4 -apple-system,system-ui,sans-serif;display:flex;overflow:hidden}main{flex:1;justify-content:center;align-items:center;min-width:0;padding:12px;display:flex;position:relative}#brainOverlay{background:#0a0e18db;border:1px solid #2c3a5c;border-radius:8px;width:400px;max-width:45%;max-height:calc(100% - 40px);padding:8px 10px;position:absolute;top:20px;right:20px;overflow-y:auto}#brainOverlay canvas{width:100%;height:auto;margin-top:4px;display:block}.mindHead{align-items:center;gap:6px;display:flex}.mindHead strong{color:var(--accent);flex:1;font-size:13px}.mindHead button{padding:1px 8px}#mindNow{margin-top:2px;font-size:13px}#mindHabits{margin:6px 0 0;padding-left:18px;font-size:13px}#brainOverlay.folded .mindBody{display:none}#world{cursor:crosshair;touch-action:none;border-radius:8px;width:100%;height:100%;display:block}aside{background:var(--panel);flex-direction:column;gap:16px;width:340px;padding:16px;display:flex;overflow-y:auto}h1{color:var(--accent);margin:0;font-size:18px}h2{text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 6px;font-size:12px}button,input,select{font:inherit;color:var(--text);background:#1d2740;border:1px solid #2c3a5c;border-radius:6px;padding:6px 10px}button{cursor:pointer}button:hover{border-color:var(--accent)}.row{align-items:center;gap:8px;display:flex}.row input[type=number]{width:90px}input[type=range]{flex:1;padding:0}table{border-collapse:collapse;font-variant-numeric:tabular-nums;width:100%}td{padding:2px 0}td:last-child{text-align:right}#chart,#brain{background:#0e1424;border-radius:6px;width:100%;height:auto}#chart{height:140px}select{max-width:100%}.hint{color:var(--muted);font-size:12px}html[lang=en] [lang=pl],html[lang=pl] [lang=en]{display:none!important}header{justify-content:space-between;align-items:center;gap:8px;display:flex}#langSwitch{padding:3px 8px;font-size:12px}details summary{cursor:pointer;color:var(--accent)}details p{margin:6px 0 0}a{color:var(--accent)}.seg{display:flex}.seg button{border-radius:0;margin-left:-1px;padding:6px 9px}.seg button:first-child{border-radius:6px 0 0 6px;margin-left:0}.seg button:last-child{border-radius:0 6px 6px 0}.seg button.active{background:var(--accent);color:#1a1405;border-color:var(--accent);position:relative}td:last-child{white-space:nowrap;padding-left:8px}details>table,details>p{margin-top:6px}@media (width<=760px){body{flex-direction:column;height:auto;overflow:auto}main{flex:none;height:min(62vh,72vw);padding:6px}aside{width:100%;overflow:visible}#brainOverlay{width:auto;max-width:none;max-height:75%;padding:6px 8px;inset:auto 10px 10px}}@media (hover:none){.keyHint{display:none}}.icon{text-align:left;width:1.6em;display:inline-block}</style>
+    <script type="module" crossorigin src="/evosim/assets/index-CD0jDrxJ.js"></script>
+  </head>
+  <body>
+    <main>
+      <canvas id="world"></canvas>
+      <div id="brainOverlay" hidden>
+        <div class="mindHead">
+          <strong id="mindTitle"></strong>
+          <button id="mindFold" title="Fold / Zwiń"></button>
+          <button id="mindClose" title="Close / Zamknij">×</button>
+        </div>
+        <div id="mindNow"></div>
+        <div class="mindBody">
+          <ul id="mindHabits"></ul>
+          <canvas id="brainLive" width="840" height="400"></canvas>
+          <div class="hint"><span lang="en">Thicker line = stronger habit. Dots show the signal now: green pushes the action, red holds it back.</span><span lang="pl">Grubsza linia = silniejszy nawyk. Kropki to sygnał teraz: zielone pobudzają działanie, czerwone je hamują.</span></div>
+        </div>
+      </div>
+    </main>
+    <aside>
+      <header>
+        <h1>Evo Sim</h1>
+        <button id="langSwitch" title="Language / Język"></button>
+      </header>
+
+      <details id="about" open>
+        <summary><span lang="en">About this project</span><span lang="pl">O projekcie</span></summary>
+        <div class="hint" lang="en">
+          <p>An artificial-life experiment. Single cells live on light from a drifting sun, absorb dead matter or swallow smaller cells, mutate, and evolve small neural-network brains that can grow (NEAT). Days and nights come and go: at night the population shrinks, by day it grows back.</p>
+          <p>Nothing is scripted. Cells can hunt, release three kinds of toxin, stick together in colonies or mix genes with a partner, but whether any of it pays off is decided by natural selection alone. Some of it shows up, some never does. Energy never comes from nothing, so every ability has a real cost.</p>
+          <p>Evolution takes time: hunters usually appear only after tens of thousands of ticks. Raise the speed to get there sooner.</p>
+          <p>Zoom in with the mouse wheel (or two fingers on a phone) to see the organisms under the microscope; click or tap a cell to see its genes and its brain.</p>
+          <p>Made by luqsonik. Ideas, questions, bugs: <a href="https://github.com/luqsonik/evosim/issues" target="_blank" rel="noopener">GitHub Issues</a>.</p>
+        </div>
+        <div class="hint" lang="pl">
+          <p>Eksperyment ze sztucznym życiem. Pojedyncze komórki żywią się światłem wędrującego słońca, wchłaniają martwą materię albo połykają mniejsze komórki, mutują, a ich małe mózgi (sieci neuronowe NEAT) mogą rosnąć. Świat ma dzień i noc: nocą populacja maleje, a w dzień odrasta.</p>
+          <p>Nic nie jest zaprogramowane z góry. Komórki mogą polować, wydzielać trzy rodzaje toksyn, łączyć się w kolonie albo mieszać geny z partnerem, ale to, czy cokolwiek z tego się opłaca, rozstrzyga wyłącznie dobór naturalny. Część się pojawia, część nigdy. Energia nie bierze się z niczego, więc każda umiejętność ma prawdziwy koszt.</p>
+          <p>Ewolucja potrzebuje czasu: łowcy pojawiają się zwykle dopiero po kilkudziesięciu tysiącach ticków. Zwiększ tempo, żeby dojść tam szybciej.</p>
+          <p>Kółkiem myszy (albo dwoma palcami na telefonie) przybliżasz organizmy pod mikroskopem, a kliknięcie lub dotknięcie komórki pokazuje jej geny i mózg.</p>
+          <p>Autor: luqsonik. Pomysły, pytania, błędy: <a href="https://github.com/luqsonik/evosim/issues" target="_blank" rel="noopener">GitHub Issues</a>.</p>
+        </div>
+      </details>
+
+      <section>
+        <div class="row">
+          <button id="play">⏸ Pause</button>
+          <div class="seg" id="speedButtons" title="Speed">
+            <button data-speed="1">1×</button>
+            <button data-speed="5">5×</button>
+            <button data-speed="20">20×</button>
+            <button data-speed="200">Max</button>
+          </div>
+        </div>
+        <div class="hint" style="margin-top: 4px"><span lang="en">Speed = ticks per frame.</span><span lang="pl">Tempo = ticki na klatkę.</span><span class="keyHint"> <span lang="en">Space pauses.</span><span lang="pl">Spacja zatrzymuje.</span></span></div>
+      </section>
+
+      <section>
+        <h2><span lang="en">World</span><span lang="pl">Świat</span></h2>
+        <table id="stats"></table>
+        <select id="chartSeries" style="margin-top: 8px"></select>
+        <canvas id="chart" width="576" height="280"></canvas>
+        <div class="hint"><span lang="en">White line: population. Yellow: the chosen value.</span><span lang="pl">Biała linia: populacja. Żółta: wybrana wartość.</span></div>
+        <details>
+          <summary><span lang="en">More statistics</span><span lang="pl">Więcej statystyk</span></summary>
+          <table id="statsMore"></table>
+        </details>
+        <details>
+          <summary><span lang="en">Average genes</span><span lang="pl">Średnie geny</span></summary>
+          <table id="genes"></table>
+        </details>
+      </section>
+
+      <section>
+        <h2><span lang="en">Selected cell</span><span lang="pl">Wybrana komórka</span></h2>
+        <div id="inspector" class="hint"><span lang="en">Click a cell on the map.</span><span lang="pl">Kliknij komórkę na mapie.</span></div>
+      </section>
+
+      <section>
+        <h2><span lang="en">View</span><span lang="pl">Widok</span></h2>
+        <div class="row">
+          <button id="wholeMap"><span class="icon">🔍</span><span lang="en">Whole map</span><span lang="pl">Cała mapa</span></button>
+          <select id="colorMode" title="Colour">
+            <option value="natural" data-en="Natural colours" data-pl="Kolory naturalne">Natural colours</option>
+            <option value="family" data-en="Family colours" data-pl="Kolory rodzin">Family colours</option>
+          </select>
+        </div>
+        <label class="row" style="margin-top: 8px"><input id="follow" type="checkbox" /><span><span lang="en">Camera follows the selected cell</span><span lang="pl">Kamera za wybraną komórką</span></span></label>
+        <label class="row" style="margin-top: 4px">
+          <input id="showMind" type="checkbox" checked />
+          <span><span lang="en">Brain and senses of the selected cell</span><span lang="pl">Mózg i zmysły wybranej komórki</span></span>
+        </label>
+        <label class="row" style="margin-top: 4px">
+          <input id="showChemistry" type="checkbox" checked />
+          <span><span lang="en">Toxins and dead matter</span><span lang="pl">Toksyny i martwa materia</span></span>
+        </label>
+        <details style="margin-top: 8px">
+          <summary><span lang="en">How to read the picture</span><span lang="pl">Jak czytać obraz</span></summary>
+          <p class="hint" lang="en">Around the selected cell: <span style="color:#e0a800">yellow</span> = brighter that way, <span style="color:#b07838">brown</span> = food, <span style="color:#a860e8">purple</span> = poison, <span style="color:#3c96e0">blue</span> = swims and turns, <span style="color:#30b860">green</span> lines = prey, <span style="color:#e04650">red</span> lines = threats, pink mouth = biting.</p>
+          <p class="hint" lang="pl">Wokół wybranej komórki: <span style="color:#e0a800">żółta</span> = jaśniej, <span style="color:#b07838">brązowa</span> = pokarm, <span style="color:#a860e8">fioletowa</span> = trucizna, <span style="color:#3c96e0">niebieska</span> = płynie i skręca, linie <span style="color:#30b860">zielone</span> = ofiary, <span style="color:#e04650">czerwone</span> = zagrożenia, różowy otwór gębowy = gryzie.</p>
+          <p class="hint" lang="en">Microscope: the mouse wheel or two fingers zoom, dragging moves the slide, a click or tap selects a cell. Up close you can see chloroplasts (green), food vacuoles, the nucleus, flagella and cilia. A slower speed shows eating and decay better.</p>
+          <p class="hint" lang="pl">Mikroskop: kółko myszy albo dwa palce przybliżają, przeciąganie przesuwa szkiełko, kliknięcie lub dotknięcie wybiera komórkę. Z bliska widać chloroplasty (zielone), pęcherzyki pokarmowe, jądro, wici i rzęski. Wolniejsze tempo = lepiej widać zjadanie i rozpad.</p>
+          <p class="hint" lang="en">Natural look: green = lives on light (chloroplasts, red eyespot), colourless with brown vacuoles = lives on food. Dense, grainy cell = well fed, pale = hungry. Toxins: a faint tint of the water — <span style="color:#d646aa">pink</span>, <span style="color:#28c8d2">turquoise</span>, <span style="color:#f08c1e">orange</span>. Brown specks = dead matter. A rim in a toxin's colour = the cell releases that toxin. Family: cells tinted by the colour of their common ancestor.</p>
+          <p class="hint" lang="pl">Naturalny wygląd: zielone = żyje ze światła (chloroplasty, czerwona plamka oczna), bezbarwne z brązowymi pęcherzykami = żyje z jedzenia. Gęsta, ziarnista komórka = najedzona, blada = głodna. Toksyny: delikatne zabarwienie wody — <span style="color:#d646aa">różowa</span>, <span style="color:#28c8d2">turkusowa</span>, <span style="color:#f08c1e">pomarańczowa</span>. Brązowe drobinki = martwa materia. Obwódka w kolorze toksyny = komórka wydziela toksynę. Rodzina: komórki zabarwione kolorem wspólnego przodka.</p>
+        </details>
+      </section>
+
+      <details>
+        <summary><span lang="en">Advanced: seed, save, load</span><span lang="pl">Zaawansowane: ziarno, zapis, wczytanie</span></summary>
+        <div class="row" style="margin-top: 8px">
+          <span><span lang="en">Seed</span><span lang="pl">Ziarno</span></span>
+          <input id="seed" type="number" value="1" />
+          <button id="reset"><span lang="en">New world</span><span lang="pl">Nowy świat</span></button>
+        </div>
+        <div class="row" style="margin-top: 8px">
+          <button id="save"><span class="icon">💾</span><span lang="en">Save</span><span lang="pl">Zapisz</span></button>
+          <button id="load"><span class="icon">📂</span><span lang="en">Load</span><span lang="pl">Wczytaj</span></button>
+          <input id="loadFile" type="file" accept=".gz" hidden />
+        </div>
+        <div class="hint" style="margin-top: 4px"><span lang="en">The same seed always grows the same world.</span><span lang="pl">To samo ziarno zawsze daje ten sam świat.</span></div>
+      </details>
+    </aside>
+  </body>
+</html>
