@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evo Sim</title>
+    <link rel="icon" href="data:," />
+    <style>:root{--bench:#191c14;--panel:#20241a;--raise:#2b3022;--line:#3b4230;--text:#ece9d8;--muted:#a4a78f;--sun:#f0bf4c;--leaf:#9cc86e;--serif:"Spectral", Georgia, serif;--accent:var(--sun)}*{box-sizing:border-box}body{background:var(--bench);color:var(--text);height:100vh;margin:0;font:14px/1.45 -apple-system,system-ui,sans-serif;display:flex;overflow:hidden}main{flex:1;justify-content:center;align-items:center;min-width:0;padding:14px;display:flex;position:relative}#world.dark{filter:invert()hue-rotate(180deg)saturate(1.3)contrast(1.08)}#world{cursor:crosshair;touch-action:none;border-radius:14px;width:100%;height:100%;display:block;box-shadow:0 0 0 1px #0d0f0a,0 0 0 6px #23271c,0 18px 50px #00000073}#readout{-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);pointer-events:none;font-family:var(--serif);color:var(--text);background:#14170fb8;border-radius:10px;align-items:baseline;gap:18px;padding:8px 14px;display:flex;position:absolute;bottom:30px;left:32px}#readout b{font-variant-numeric:lining-nums tabular-nums;font-size:22px;font-weight:600}#readout span{color:var(--muted);font-size:13px}#readout .day b{color:var(--sun)}#brainOverlay{-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid var(--line);background:#161911e6;border-radius:12px;width:400px;max-width:45%;max-height:calc(100% - 52px);padding:10px 12px;position:absolute;top:26px;right:26px;overflow-y:auto}#brainOverlay canvas{width:100%;height:auto;margin-top:4px;display:block}.mindHead{align-items:center;gap:6px;display:flex}.mindHead strong{color:var(--sun);font:600 16px var(--serif);flex:1}.mindHead button{padding:1px 8px}#mindNow{margin-top:2px;font-size:13px}#mindHabits{margin:6px 0 0;padding-left:18px;font-size:13px}#brainOverlay.folded .mindBody{display:none}aside{background:var(--panel);border-left:1px solid #2a2f21;flex-direction:column;gap:22px;width:360px;padding:18px 18px 28px;display:flex;overflow-y:auto}h1{font:600 26px/1 var(--serif);color:var(--text);letter-spacing:-.01em;margin:0}.tagline{color:var(--muted);font:italic 15px/1.35 var(--serif);margin:4px 0 0}h2{font:600 17px/1.2 var(--serif);color:var(--text);margin:0 0 8px}button,input,select{font:inherit;color:var(--text);background:var(--raise);border:1px solid var(--line);border-radius:8px;padding:6px 10px}button{cursor:pointer;transition:border-color .15s,background .15s}button:hover{border-color:var(--sun)}:focus-visible{outline:2px solid var(--sun);outline-offset:2px}#play{background:var(--sun);color:#221a05;border-color:var(--sun);min-width:92px;font-weight:600}#play:hover{background:#f6cd6a}.row{align-items:center;gap:8px;display:flex}.row input[type=number]{width:90px}input[type=checkbox]{accent-color:var(--leaf);width:16px;height:16px;margin:0}input[type=range]{flex:1;padding:0}table{border-collapse:collapse;font-variant-numeric:tabular-nums;width:100%}td{border-bottom:1px solid #3b42308c;padding:3px 0}tr:last-child td{border-bottom:0}td:last-child{text-align:right;white-space:nowrap;padding-left:8px}#stats td:first-child{color:var(--muted)}#chart,#brain{background:#181b13;border:1px solid #2a2f21;border-radius:10px;width:100%;height:auto}#chart{height:150px;margin-top:8px}select{max-width:100%}.hint{color:var(--muted);font-size:12.5px}html[lang=en] [lang=pl],html[lang=pl] [lang=en]{display:none!important}header{justify-content:space-between;align-items:flex-start;gap:8px;display:flex}#langSwitch{padding:3px 9px;font-size:12px}details summary{cursor:pointer;color:var(--sun)}details summary:hover{text-underline-offset:3px;text-decoration:underline}details p{margin:6px 0 0}a{color:var(--sun);text-underline-offset:3px}.discoveriesLink{border:1px solid var(--line);color:var(--text);background:linear-gradient(90deg,#f0bf4c1a,#0000 70%);border-radius:10px;align-items:center;gap:10px;padding:10px 12px;text-decoration:none;display:flex}.discoveriesLink:hover{border-color:var(--sun)}.discoveriesLink b{font:600 15px var(--serif);color:var(--sun);display:block}.discoveriesLink small{color:var(--muted);font-size:12px}.seg{display:flex}.seg button{border-radius:0;margin-left:-1px;padding:6px 10px}.seg button:first-child{border-radius:8px 0 0 8px;margin-left:0}.seg button:last-child{border-radius:0 8px 8px 0}.seg button.active{color:var(--sun);border-color:var(--sun);background:#3a3f2c;position:relative}details>table,details>p{margin-top:6px}.laws{grid-template-columns:repeat(3,1fr);gap:6px;display:grid}.laws>:last-child:nth-child(3n+1){grid-column:span 3}.law{text-align:center;border:1px solid var(--line);background:var(--raise);cursor:pointer;border-radius:10px;flex-direction:column;justify-content:flex-start;align-items:center;gap:4px;min-height:78px;padding:10px 4px 8px;font-size:12px;line-height:1.2;transition:border-color .15s,background .15s;display:flex;position:relative}.law:hover,.law.shown{border-color:#6b7354}.law input{opacity:0;pointer-events:none;position:absolute}.law .glyph{filter:saturate(.85);font-size:22px;line-height:1}.law:has(input:checked){border-color:var(--leaf);color:#f3f6e9;background:#9cc86e24}.law:has(input:checked):after{content:"";background:var(--leaf);width:7px;height:7px;box-shadow:0 0 8px var(--leaf);border-radius:50%;position:absolute;top:6px;right:6px}.law:has(input:focus-visible){outline:2px solid var(--sun);outline-offset:2px}#lawInfo{background:#1a1d15;border:1px solid #2a2f21;border-radius:10px;min-height:88px;margin-top:8px;padding:10px 12px}#lawInfo .hint{font-size:12.5px;line-height:1.5}#lawInfo strong{font:600 15px var(--serif);color:var(--text);margin-bottom:4px;display:block}#lawInfo [data-law]{display:none}#lawInfo[data-show=none] [data-law=none],#lawInfo[data-show=islands] [data-law=islands],#lawInfo[data-show=arms] [data-law=arms],#lawInfo[data-show=klepto] [data-law=klepto],#lawInfo[data-show=organelle] [data-law=organelle],#lawInfo[data-show=parasites] [data-law=parasites],#lawInfo[data-show=virulence] [data-law=virulence],#lawInfo[data-show=sleep] [data-law=sleep],#lawInfo[data-show=seasons] [data-law=seasons],#lawInfo[data-show=nutrients] [data-law=nutrients],#lawInfo[data-show=fixing] [data-law=fixing]{display:block}@media (width<=760px){body{flex-direction:column;height:auto;overflow:auto}main{flex:none;height:min(62vh,72vw);padding:8px}#world{border-radius:10px;box-shadow:0 0 0 1px #0d0f0a,0 0 0 3px #23271c}#readout{gap:12px;padding:5px 10px;bottom:16px;left:16px}#readout b{font-size:17px}aside{border-left:0;width:100%;padding:16px;overflow:visible}#brainOverlay{width:auto;max-width:none;max-height:75%;padding:6px 8px;inset:auto 10px 10px}#brainOverlay:not([hidden])~#readout{display:none}}@media (prefers-reduced-motion:reduce){*{transition:none!important}}@media (hover:none){.keyHint{display:none}}.icon{text-align:left;width:1.6em;display:inline-block}</style>
+    <script type="module" crossorigin src="/evosim/assets/main-BKSnvGfK.js"></script>
+    <link rel="modulepreload" crossorigin href="/evosim/assets/600-DkBNUfo4.js">
+    <link rel="stylesheet" crossorigin href="/evosim/assets/600-B6Zynd6j.css">
+  </head>
+  <body>
+    <main>
+      <canvas id="world"></canvas>
+      <div id="brainOverlay" hidden>
+        <div class="mindHead">
+          <strong id="mindTitle"></strong>
+          <button id="mindFold" title="Fold / Zwiń"></button>
+          <button id="mindClose" title="Close / Zamknij">×</button>
+        </div>
+        <div id="mindNow"></div>
+        <div class="mindBody">
+          <ul id="mindHabits"></ul>
+          <canvas id="brainLive" width="840" height="400"></canvas>
+          <div class="hint"><span lang="en">Thicker line = stronger habit. Dots show the signal now: green pushes the action, red holds it back.</span><span lang="pl">Grubsza linia = silniejszy nawyk. Kropki to sygnał teraz: zielone pobudzają działanie, czerwone je hamują.</span></div>
+        </div>
+      </div>
+      <div id="readout" aria-hidden="true"></div>
+    </main>
+    <aside>
+      <header>
+        <div>
+          <h1>Evo Sim</h1>
+          <p class="tagline"><span lang="en">Evolution under a microscope</span><span lang="pl">Ewolucja pod mikroskopem</span></p>
+        </div>
+        <button id="langSwitch" title="Language / Język"></button>
+      </header>
+      <a class="discoveriesLink" href="discoveries.html"><span aria-hidden="true" style="font-size: 22px">🔬</span><span><b><span lang="en">What we discovered</span><span lang="pl">Co odkryliśmy</span></b><small><span lang="en">12 findings, each tested against a control</span><span lang="pl">12 odkryć, każde sprawdzone z kontrolą</span></small></span></a>
+
+      <details id="about">
+        <summary><span lang="en">About this project</span><span lang="pl">O projekcie</span></summary>
+        <div class="hint" lang="en">
+          <p>An artificial-life experiment. Single cells live on light from a drifting sun, absorb dead matter or swallow smaller cells, mutate, and evolve small neural-network brains that can grow (NEAT). Days and nights come and go: at night the population shrinks, by day it grows back.</p>
+          <p>Nothing is scripted. Cells can hunt, release three kinds of toxin, stick together in colonies or mix genes with a partner, but whether any of it pays off is decided by natural selection alone. Some of it shows up, some never does. Energy never comes from nothing, so every ability has a real cost.</p>
+          <p>Evolution takes time: hunters usually appear only after tens of thousands of ticks. Raise the speed to get there sooner.</p>
+          <p>Under "World laws" you can start worlds with extra laws. Each changes what pays off, and each was tested against a control: see the discoveries.</p>
+          <p>Zoom in with the mouse wheel (or two fingers on a phone) to see the organisms under the microscope; click or tap a cell to see its genes and its brain.</p>
+          <p>Made by luqsonik. Ideas, questions, bugs: <a href="https://github.com/luqsonik/evosim/issues" target="_blank" rel="noopener">GitHub Issues</a>.</p>
+        </div>
+        <div class="hint" lang="pl">
+          <p>Eksperyment ze sztucznym życiem. Pojedyncze komórki żywią się światłem wędrującego słońca, wchłaniają martwą materię albo połykają mniejsze komórki, mutują, a ich małe mózgi (sieci neuronowe NEAT) mogą rosnąć. Świat ma dzień i noc: nocą populacja maleje, a w dzień odrasta.</p>
+          <p>Nic nie jest zaprogramowane z góry. Komórki mogą polować, wydzielać trzy rodzaje toksyn, łączyć się w kolonie albo mieszać geny z partnerem, ale to, czy cokolwiek z tego się opłaca, rozstrzyga wyłącznie dobór naturalny. Część się pojawia, część nigdy. Energia nie bierze się z niczego, więc każda umiejętność ma prawdziwy koszt.</p>
+          <p>Ewolucja potrzebuje czasu: łowcy pojawiają się zwykle dopiero po kilkudziesięciu tysiącach ticków. Zwiększ tempo, żeby dojść tam szybciej.</p>
+          <p>W „Prawach świata” możesz zacząć świat z dodatkowymi prawami. Każde zmienia to, co się opłaca, i każde było sprawdzone z kontrolą: zobacz odkrycia.</p>
+          <p>Kółkiem myszy (albo dwoma palcami na telefonie) przybliżasz organizmy pod mikroskopem, a kliknięcie lub dotknięcie komórki pokazuje jej geny i mózg.</p>
+          <p>Autor: luqsonik. Pomysły, pytania, błędy: <a href="https://github.com/luqsonik/evosim/issues" target="_blank" rel="noopener">GitHub Issues</a>.</p>
+        </div>
+      </details>
+
+      <section>
+        <div class="row">
+          <button id="play">⏸ Pause</button>
+          <div class="seg" id="speedButtons" title="Speed">
+            <button data-speed="1">1×</button>
+            <button data-speed="5">5×</button>
+            <button data-speed="20">20×</button>
+            <button data-speed="200">Max</button>
+          </div>
+        </div>
+        <div class="hint" style="margin-top: 4px"><span lang="en">Speed = ticks per frame.</span><span lang="pl">Tempo = ticki na klatkę.</span><span class="keyHint"> <span lang="en">Space pauses.</span><span lang="pl">Spacja zatrzymuje.</span></span></div>
+      </section>
+
+      <section>
+        <h2><span lang="en">World</span><span lang="pl">Świat</span></h2>
+        <table id="stats"></table>
+        <select id="chartSeries" style="margin-top: 8px"></select>
+        <canvas id="chart" width="576" height="280"></canvas>
+        <div class="hint"><span lang="en">Pale line and green area: population. Yellow: the chosen value.</span><span lang="pl">Jasna linia i zielone pole: populacja. Żółta: wybrana wartość.</span></div>
+        <details>
+          <summary><span lang="en">More statistics</span><span lang="pl">Więcej statystyk</span></summary>
+          <table id="statsMore"></table>
+        </details>
+        <details>
+          <summary><span lang="en">Average genes</span><span lang="pl">Średnie geny</span></summary>
+          <table id="genes"></table>
+        </details>
+      </section>
+
+      <section>
+        <h2><span lang="en">World laws</span><span lang="pl">Prawa świata</span></h2>
+        <div class="laws">
+          <label class="law" data-law="islands"><input id="islands" type="checkbox" /><span class="glyph" aria-hidden="true">🏝️</span><span lang="en">Two islands</span><span lang="pl">Dwie wyspy</span></label>
+          <label class="law" data-law="arms"><input id="arms" type="checkbox" /><span class="glyph" aria-hidden="true">🛡️</span><span lang="en">Armor and jaws</span><span lang="pl">Pancerz i szczęki</span></label>
+          <label class="law" data-law="klepto"><input id="klepto" type="checkbox" /><span class="glyph" aria-hidden="true">🥬</span><span lang="en">Stolen chloroplasts</span><span lang="pl">Kradzione chloroplasty</span></label>
+          <label class="law" data-law="organelle"><input id="organelle" type="checkbox" /><span class="glyph" aria-hidden="true">🌱</span><span lang="en">Organelles</span><span lang="pl">Organella</span></label>
+          <label class="law" data-law="parasites"><input id="parasites" type="checkbox" /><span class="glyph" aria-hidden="true">🦠</span><span lang="en">Parasites</span><span lang="pl">Pasożyty</span></label>
+          <label class="law" data-law="virulence"><input id="virulence" type="checkbox" /><span class="glyph" aria-hidden="true">🕊️</span><span lang="en">Mild parasites</span><span lang="pl">Łagodne pasożyty</span></label>
+          <label class="law" data-law="sleep"><input id="sleep" type="checkbox" /><span class="glyph" aria-hidden="true">🌙</span><span lang="en">Sleep</span><span lang="pl">Sen</span></label>
+          <label class="law" data-law="seasons"><input id="seasons" type="checkbox" /><span class="glyph" aria-hidden="true">🍂</span><span lang="en">Seasons</span><span lang="pl">Pory roku</span></label>
+          <label class="law" data-law="nutrients"><input id="nutrients" type="checkbox" /><span class="glyph" aria-hidden="true">🪨</span><span lang="en">Poor soil</span><span lang="pl">Uboga gleba</span></label>
+          <label class="law" data-law="fixing"><input id="fixing" type="checkbox" /><span class="glyph" aria-hidden="true">🫘</span><span lang="en">Nitrogen fixing</span><span lang="pl">Wiązanie azotu</span></label>
+        </div>
+        <div id="lawInfo" data-show="none" aria-live="polite">
+          <div data-law="none" class="hint"><span lang="en">Extra laws change what pays off in evolution, and each was tested against a control. Turning one on or off starts a new world. Point at a law to read what it does.</span><span lang="pl">Dodatkowe prawa zmieniają to, co w ewolucji się opłaca, i każde było sprawdzone z kontrolą. Włączenie albo wyłączenie prawa zaczyna nowy świat. Wskaż prawo, żeby przeczytać, co robi.</span></div>
+          <div data-law="islands"><strong><span lang="en">Two islands</span><span lang="pl">Dwie wyspy</span></strong><div class="hint"><span lang="en">Each island has its own sun; the bottom one gets a little less light. Cells never cross the dark strips, so over time the two islands grow into separate species.</span><span lang="pl">Każda wyspa ma własne słońce, dolna dostaje trochę mniej światła. Komórki nie przepływają przez ciemne pasy, więc z czasem na wyspach powstają osobne gatunki.</span></div></div>
+          <div data-law="arms"><strong><span lang="en">Arms race: armor and jaws</span><span lang="pl">Wyścig zbrojeń: pancerz i szczęki</span></strong><div class="hint"><span lang="en">Cells bite each other from the start. Armor (a thick, plated membrane) can stop a bite, unless the eater's jaws (pincers at the front) are as strong. Both cost energy, and armor is heavy. In tests, armor paid in 13 of 16 worlds: about half of the worlds lost their eaters, in the rest the eaters grew stronger jaws, and cells no longer had to grow big to stay safe.</span><span lang="pl">Komórki od początku się gryzą. Pancerz (gruba błona z płytkami) może odbić ugryzienie, chyba że zjadający ma równie mocne szczęki (szczypce z przodu). Jedno i drugie kosztuje energię, a pancerz jest ciężki. W testach pancerz opłacił się w 13 z 16 światów: mniej więcej połowa światów straciła zjadających, w pozostałych zjadający wykształcili mocniejsze szczęki, a komórki nie musiały już rosnąć, żeby być bezpieczne.</span></div></div>
+          <div data-law="klepto"><strong><span lang="en">Stolen chloroplasts</span><span lang="pl">Kradzione chloroplasty</span></strong><div class="hint"><span lang="en">As some sea slugs and ciliates do: an eater keeps the chloroplasts of the plant it ate (bright green dots in clear bubbles) and photosynthesizes with them until they wear out. In tests, cells grew twice as big, bit more, made less of their own chlorophyll, and ate up the small plants they depended on: populations collapsed in 8 of 8 worlds. Over longer times some worlds died out and some went back to small plants.</span><span lang="pl">Tak jak robią niektóre ślimaki morskie i orzęski: zjadający zatrzymuje chloroplasty zjedzonej rośliny (jaskrawozielone kropki w przezroczystych pęcherzykach) i robi z nimi fotosyntezę, aż się zużyją. W testach komórki urosły dwa razy, gryzły więcej, miały mniej własnych chloroplastów i wyjadły małe rośliny, od których zależały: populacja załamała się w 8 z 8 światów. Przy dłuższym czasie część światów wymarła, a część wróciła do małych roślin.</span></div></div>
+          <div data-law="organelle"><strong><span lang="en">Chloroplasts become organelles</span><span lang="pl">Chloroplasty stają się organellami</span></strong><div class="hint"><span lang="en">Builds on stolen chloroplasts: a child gets half of its mother's stolen chloroplasts, and a keeper gene lets them last and divide inside the cell, for energy. This is how real chloroplasts began, as swallowed bacteria that stayed. In tests, cells kept 2–6 times more of them and made less of their own chlorophyll: in 7 of 8 small worlds and 6 of 8 big ones.</span><span lang="pl">Rozszerza kradzione chloroplasty: dziecko dostaje połowę kradzionych chloroplastów matki, a gen opiekuna pozwala im przetrwać i dzielić się w komórce, za energię. Tak naprawdę powstały chloroplasty: jako połknięte bakterie, które zostały. W testach komórki trzymały ich 2–6 razy więcej i miały mniej własnych chloroplastów: w 7 z 8 małych światów i w 6 z 8 dużych.</span></div></div>
+          <div data-law="parasites"><strong><span lang="en">Parasites</span><span lang="pl">Pasożyty</span></strong><div class="hint"><span lang="en">Each cell has a "lock" in its genes, and each parasite strain a "key". A parasite passes to a touching cell more easily the better its key fits, and it changes a little each time, so it can chase the most common locks. Infected cells (violet specks inside) lose energy until they get well. This is the Red Queen idea of why sex exists: mixing genes gives rare locks. In our tests, sex did not pay off, even with parasites.</span><span lang="pl">Każda komórka ma w genach „zamek”, a każdy szczep pasożyta „klucz”. Pasożyt przechodzi na dotykającą komórkę tym łatwiej, im lepiej klucz pasuje, i za każdym razem trochę się zmienia, więc może gonić najczęstsze zamki. Zarażone komórki (fioletowe drobinki w środku) tracą energię, aż wyzdrowieją. To hipoteza Czerwonej Królowej o tym, po co jest płeć: mieszanie genów daje rzadkie zamki. W naszych testach płeć się nie opłaciła, nawet z pasożytami.</span></div></div>
+          <div data-law="virulence"><strong><span lang="en">Parasites evolve their harshness</span><span lang="pl">Pasożyty ewoluują zjadliwość</span></strong><div class="hint"><span lang="en">Builds on parasites: each strain has a virulence. A harsher strain passes on more easily but drains its host faster. Because parasites pass only to touching cells, a strain that is too harsh wipes out its own neighbourhood, so milder strains win (as in experiments with bacteriophages, Kerr et al. 2006).</span><span lang="pl">Opiera się na pasożytach: każdy szczep ma zjadliwość. Bardziej zjadliwy łatwiej się przenosi, ale szybciej wysysa gospodarza. Pasożyty przechodzą tylko na sąsiadów, więc zbyt zjadliwy szczep wyniszcza własną okolicę i wygrywają łagodniejsze (jak w doświadczeniach z bakteriofagami, Kerr i in. 2006).</span></div></div>
+          <div data-law="sleep"><strong><span lang="en">Sleep</span><span lang="pl">Sen</span></strong><div class="hint"><span lang="en">A sleep gene sets a light level: in dimmer light the cell rests as a cyst (round, with a thick golden wall). It does not move, eat or divide, and pays only a fifth of its upkeep. In tests, 83–98% of cells slept at midnight and none at noon, every night.</span><span lang="pl">Gen snu ustala poziom światła: w słabszym świetle komórka odpoczywa jako cysta (okrągła, z grubą złotą ścianą). Nie pływa, nie je i się nie dzieli, a płaci tylko jedną piątą kosztu życia. W testach o północy spało 83–98% komórek, a w południe żadna, i tak co noc.</span></div></div>
+          <div data-law="seasons"><strong><span lang="en">Seasons</span><span lang="pl">Pory roku</span></strong><div class="hint"><span lang="en">A year lasts 6 days: winter noons get only 0.3 of the usual light, summer noons 1.7, and over a whole year the light is the same as without seasons. Try it together with sleep. In tests, every winter shrank the population to a few dozen cells, and cells did not sleep through winter days: in a dark winter every bit of daylight counts.</span><span lang="pl">Rok trwa 6 dni: zimowe południe ma tylko 0,3 zwykłego światła, letnie 1,7, a przez cały rok światła jest tyle samo co bez pór roku. Spróbuj razem ze snem. W testach każda zima zmniejszała populację do kilkudziesięciu komórek, a komórki nie przesypiały zimowych dni: w ciemną zimę liczy się każda odrobina światła.</span></div></div>
+          <div data-law="nutrients"><strong><span lang="en">Poor soil: nitrogen</span><span lang="pl">Uboga gleba: azot</span></strong><div class="hint"><span lang="en">To divide, a cell needs nutrient (think nitrogen) in proportion to its body. It takes it up slowly from the soil, gets all of it from eaten prey, and gives it back to the soil when it dies; the total never changes. The soil is poor: most of the nutrient sits in cells. Soil that still holds some is tinted ochre, usually under the crowd, where the dead give it back. In tests no carnivorous plants appeared, but cells grew bigger than on rich soil in 8 of 8 small worlds and 8 of 8 big ones, the opposite of what plankton does in the sea.</span><span lang="pl">Żeby się podzielić, komórka potrzebuje składnika (np. azotu) w ilości zależnej od wielkości ciała. Pobiera go powoli z gleby, dostaje cały ze zjedzonej ofiary i oddaje glebie, gdy umiera. Łączna ilość nigdy się nie zmienia. Gleba jest uboga: większość składnika siedzi w komórkach. Gleba, w której jeszcze coś zostało, ma ochrowy odcień, zwykle pod skupiskiem komórek, gdzie martwe oddają składnik. W testach nie powstały rośliny mięsożerne, ale komórki urosły większe niż na bogatej glebie w 8 z 8 małych i 8 z 8 dużych światów. To odwrotnie niż u planktonu w morzu.</span></div></div>
+          <div data-law="fixing"><strong><span lang="en">Nitrogen fixing</span><span lang="pl">Wiązanie azotu</span></strong><div class="hint"><span lang="en">Builds on poor soil: a gene lets a cell make nutrient from the air, as the bacteria in bean roots do, paying energy for every unit. Fixers carry pale, thick-walled granules. In tests the gene grew about 4 times higher than in a control where it did nothing, the soil filled up and worlds held 1.6 to 4.5 times more cells: in 8 of 8 small worlds and 8 of 8 big ones.</span><span lang="pl">Rozszerza ubogą glebę: gen pozwala komórce robić składnik z powietrza, tak jak bakterie w korzeniach fasoli, za energię za każdą jednostkę. Komórki wiążące azot mają blade ziarna z grubą ścianą. W testach gen urósł ok. 4 razy wyżej niż w kontroli, w której nic nie robił, gleba się nawiozła, a światy miały 1,6 do 4,5 raza więcej komórek: w 8 z 8 małych i 8 z 8 dużych światów.</span></div></div>
+        </div>
+      </section>
+
+      <section>
+        <h2><span lang="en">Selected cell</span><span lang="pl">Wybrana komórka</span></h2>
+        <div id="inspector" class="hint"><span lang="en">Click a cell on the map.</span><span lang="pl">Kliknij komórkę na mapie.</span></div>
+      </section>
+
+      <section>
+        <h2><span lang="en">View</span><span lang="pl">Widok</span></h2>
+        <div class="row">
+          <button id="wholeMap"><span class="icon">🔍</span><span lang="en">Whole map</span><span lang="pl">Cała mapa</span></button>
+          <select id="colorMode" title="Colour">
+            <option value="natural" data-en="Natural colours" data-pl="Kolory naturalne">Natural colours</option>
+            <option value="family" data-en="Family colours" data-pl="Kolory rodzin">Family colours</option>
+          </select>
+        </div>
+        <label class="row" style="margin-top: 8px"><input id="follow" type="checkbox" /><span><span lang="en">Camera follows the selected cell</span><span lang="pl">Kamera za wybraną komórką</span></span></label>
+        <label class="row" style="margin-top: 4px">
+          <input id="showMind" type="checkbox" checked />
+          <span><span lang="en">Brain and senses of the selected cell</span><span lang="pl">Mózg i zmysły wybranej komórki</span></span>
+        </label>
+        <label class="row" style="margin-top: 4px">
+          <input id="showChemistry" type="checkbox" checked />
+          <span><span lang="en">Toxins and dead matter</span><span lang="pl">Toksyny i martwa materia</span></span>
+        </label>
+        <label class="row" style="margin-top: 4px">
+          <input id="darkField" type="checkbox" />
+          <span><span lang="en">Dark field (cells glow on black)</span><span lang="pl">Ciemne pole (komórki świecą na czarnym)</span></span>
+        </label>
+        <details style="margin-top: 8px">
+          <summary><span lang="en">How to read the picture</span><span lang="pl">Jak czytać obraz</span></summary>
+          <p class="hint" lang="en">Around the selected cell: <span style="color:#e0a800">yellow</span> = brighter that way, <span style="color:#b07838">brown</span> = food, <span style="color:#a860e8">purple</span> = poison, <span style="color:#3c96e0">blue</span> = swims and turns, <span style="color:#30b860">green</span> lines = prey, <span style="color:#e04650">red</span> lines = threats, pink mouth = biting.</p>
+          <p class="hint" lang="pl">Wokół wybranej komórki: <span style="color:#e0a800">żółta</span> = jaśniej, <span style="color:#b07838">brązowa</span> = pokarm, <span style="color:#a860e8">fioletowa</span> = trucizna, <span style="color:#3c96e0">niebieska</span> = płynie i skręca, linie <span style="color:#30b860">zielone</span> = ofiary, <span style="color:#e04650">czerwone</span> = zagrożenia, różowy otwór gębowy = gryzie.</p>
+          <p class="hint" lang="en">Microscope: the mouse wheel or two fingers zoom, dragging moves the slide, a click or tap selects a cell. Up close you can see chloroplasts (green), food vacuoles, the nucleus, flagella and cilia. A slower speed shows eating and decay better.</p>
+          <p class="hint" lang="pl">Mikroskop: kółko myszy albo dwa palce przybliżają, przeciąganie przesuwa szkiełko, kliknięcie lub dotknięcie wybiera komórkę. Z bliska widać chloroplasty (zielone), pęcherzyki pokarmowe, jądro, wici i rzęski. Wolniejsze tempo = lepiej widać zjadanie i rozpad.</p>
+          <p class="hint" lang="en">Natural look: green = lives on light (chloroplasts, red eyespot), colourless with brown vacuoles = lives on food. Dense, grainy cell = well fed, pale = hungry. Toxins: a faint tint of the water — <span style="color:#d646aa">pink</span>, <span style="color:#28c8d2">turquoise</span>, <span style="color:#f08c1e">orange</span>. Brown specks = dead matter. A rim in a toxin's colour = the cell releases that toxin. Family: cells tinted by the colour of their common ancestor.</p>
+          <p class="hint" lang="pl">Naturalny wygląd: zielone = żyje ze światła (chloroplasty, czerwona plamka oczna), bezbarwne z brązowymi pęcherzykami = żyje z jedzenia. Gęsta, ziarnista komórka = najedzona, blada = głodna. Toksyny: delikatne zabarwienie wody — <span style="color:#d646aa">różowa</span>, <span style="color:#28c8d2">turkusowa</span>, <span style="color:#f08c1e">pomarańczowa</span>. Brązowe drobinki = martwa materia. Obwódka w kolorze toksyny = komórka wydziela toksynę. Rodzina: komórki zabarwione kolorem wspólnego przodka.</p>
+          <p class="hint" lang="en">Kinds of cells: each lineage keeps its own look, so related cells resemble each other. Swimmers: one trailing whip, two rowing whips at the front, or a striped spindle pulled by a front whip. Living on light without swimming: a plain cell, a golden glass diatom with rows of pores, or a two-halved desmid. Eaters that creep: an amoeba, a sun-animalcule with beaded rays, or an amoeba in a brown shell. The look is only a picture: it does not change what the cell can do.</p>
+          <p class="hint" lang="pl">Rodzaje komórek: każdy ród ma swój wygląd, więc spokrewnione komórki są do siebie podobne. Pływające: jedna wić z tyłu, dwie wiosłujące wici z przodu albo prążkowane wrzeciono ciągnięte wicią z przodu. Żyjące ze światła bez pływania: zwykła komórka, złota szklana okrzemka z rzędami porów albo dwuczęściowa desmidia. Pełzające zjadające: ameba, słonecznica z paciorkowatymi promieniami albo ameba w brązowej skorupce. Wygląd to tylko obraz: nie zmienia tego, co komórka potrafi.</p>
+        </details>
+      </section>
+
+      <details>
+        <summary><span lang="en">Seed, save and load</span><span lang="pl">Ziarno, zapis i wczytanie</span></summary>
+        <div class="row" style="margin-top: 10px">
+          <span><span lang="en">Seed</span><span lang="pl">Ziarno</span></span>
+          <input id="seed" type="number" value="1" />
+          <button id="reset"><span lang="en">New world</span><span lang="pl">Nowy świat</span></button>
+        </div>
+        <div class="row" style="margin-top: 8px">
+          <button id="save"><span class="icon">💾</span><span lang="en">Save</span><span lang="pl">Zapisz</span></button>
+          <button id="load"><span class="icon">📂</span><span lang="en">Load</span><span lang="pl">Wczytaj</span></button>
+          <input id="loadFile" type="file" accept=".gz" hidden />
+        </div>
+        <div class="hint" style="margin-top: 4px"><span lang="en">The same seed always grows the same world.</span><span lang="pl">To samo ziarno zawsze daje ten sam świat.</span></div>
+      </details>
+    </aside>
+  </body>
+</html>

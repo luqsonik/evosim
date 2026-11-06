@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evo Sim: Discoveries</title>
+    <style>:root{--bench:#191c14;--panel:#20241a;--raise:#2b3022;--line:#3b4230;--text:#ece9d8;--muted:#a4a78f;--sun:#f0bf4c;--leaf:#9cc86e;--serif:"Spectral", Georgia, serif;--grid:#343a2a;--series-1:#f0bf4c;--series-2:#8fa0b8}*{box-sizing:border-box}html[lang=en] [lang=pl],html[lang=pl] [lang=en]{display:none!important}html{scroll-behavior:smooth}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}body{background:var(--bench);color:var(--text);font:18px/1.65 var(--serif);margin:0}a{color:var(--sun);text-underline-offset:3px}:focus-visible{outline:2px solid var(--sun);outline-offset:3px}button{color:var(--text);border:1px solid var(--line);cursor:pointer;background:#20241acc;border-radius:8px;padding:4px 10px;font:13px -apple-system,system-ui,sans-serif}button:hover{border-color:var(--sun)}.hero{flex-direction:column;justify-content:space-between;min-height:min(78vh,720px);display:flex;position:relative;overflow:hidden}.hero>.art svg{filter:invert()hue-rotate(180deg)saturate(1.3)contrast(1.08)}.hero>.art{object-fit:cover;width:100%;height:100%;position:absolute;inset:0}.hero:after{content:"";background:radial-gradient(ellipse at 30% 40%, transparent 30%, #191c148c 75%), linear-gradient(to bottom, #191c1459, transparent 30%, transparent 55%, var(--bench));z-index:1;position:absolute;inset:0}.topbar,.heroText{z-index:2;position:relative}.topbar{justify-content:space-between;align-items:center;gap:12px;padding:18px 24px;font:14px -apple-system,system-ui,sans-serif;display:flex}.topbar a{color:var(--text);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);background:#191c14b3;border-radius:8px;padding:6px 12px;text-decoration:none}.topbar a:hover{color:var(--sun)}.heroText{width:100%;max-width:1040px;margin:0 auto;padding:0 24px 40px}h1{font:600 clamp(56px, 11vw, 132px)/.9 var(--serif);letter-spacing:-.03em;color:#f6f3e2;text-shadow:0 2px 30px #14170f99;margin:0}.lead{color:#e2dfcc;text-shadow:0 1px 12px #14170fe6;max-width:34em;margin:18px 0 0;font-size:19px}.tray{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;max-width:1040px;margin:0 auto;padding:8px 24px 24px;display:grid}.tray a{color:var(--text);font:13px/1.3 -apple-system,system-ui,sans-serif;text-decoration:none;display:block}.tray .art{aspect-ratio:4/3;object-fit:cover;border-radius:10px;width:100%;transition:box-shadow .15s;display:block;overflow:hidden;box-shadow:0 0 0 1px #0d0f0a,0 0 0 4px #23271c}.tray a:hover .art{box-shadow:0 0 0 1px #0d0f0a, 0 0 0 4px var(--sun)}.tray a>span{margin-top:9px;display:block}.tray small{color:var(--muted);font-family:var(--serif);margin-bottom:1px;font-size:13px;font-style:italic;display:block}main{max-width:720px;margin:0 auto;padding:24px 24px 80px}section{border-top:1px solid #2c3124;padding:56px 0 8px}section:first-of-type{border-top:0}.num{font:italic 16px var(--serif);color:var(--muted)}h2{font:600 clamp(28px, 4.4vw, 38px)/1.12 var(--serif);letter-spacing:-.01em;margin:2px 0 20px}.plate{margin:0 -60px 26px}.plate .art{aspect-ratio:16/10;object-fit:cover;background:#2b3022;border-radius:14px;width:100%;display:block;overflow:hidden;box-shadow:0 0 0 1px #0d0f0a,0 0 0 6px #23271c,0 20px 50px #0006}.art svg{width:100%;height:100%;display:block}.art .bob{animation:bob var(--d,9s) ease-in-out var(--dl,0s) infinite alternate}.art .swim{animation:swim var(--d,9s) ease-in-out var(--dl,0s) infinite alternate}.art .lunge{animation:lunge var(--d,2.4s) ease-in-out infinite}.art .doze{animation:bob 14s ease-in-out var(--dl,0s) infinite alternate;--dx:1px;--dy:1px;--rot:1deg}.art .flag{animation:1.1s ease-in-out infinite alternate wag}.art .pulse{animation:3s ease-in-out infinite pulse}.art .glow,.art .blink{animation:1.8s ease-in-out infinite blink}.art .roll{animation:3s ease-in-out infinite blink}.art .partL{animation:5s ease-in-out infinite alternate partL}.art .partR{animation:5s ease-in-out infinite alternate partR}@keyframes bob{to{transform:translate(var(--dx), var(--dy)) rotate(var(--rot))}}@keyframes swim{to{transform:translate(var(--sx), var(--sy))}}@keyframes lunge{0%,55%,to{transform:translate(0)}70%{transform:translate(var(--sx), var(--sy))}}@keyframes wag{0%{transform:rotate(-9deg)}to{transform:rotate(9deg)}}.art .sway{animation:7s ease-in-out infinite alternate sway}.art .flagF{animation:.9s ease-in-out infinite alternate wag}.art .rowL{animation:1.2s ease-in-out infinite alternate rowL}.art .rowR{animation:1.2s ease-in-out infinite alternate rowR}@keyframes sway{0%{transform:rotate(-3deg)}to{transform:rotate(3deg)}}@keyframes rowL{0%{transform:rotate(18deg)}to{transform:rotate(-22deg)}}@keyframes rowR{0%{transform:rotate(-18deg)}to{transform:rotate(22deg)}}.art .jitter{animation:.7s steps(2,end) infinite jitter}@keyframes jitter{50%{transform:translate(.7px,-.6px)}}@keyframes pulse{50%{transform:scale(.75)}}@keyframes blink{50%{opacity:.45}}@keyframes partL{to{transform:translate(-7px)}}@keyframes partR{to{transform:translate(7px)}}.art:not(.run) *{animation-play-state:paused!important}.tray .art *,.tray .art{animation:none!important}@media (prefers-reduced-motion:reduce){.art *{animation:none!important}}.plate figcaption{color:var(--muted);margin:14px 60px 0;font:14px/1.5 -apple-system,system-ui,sans-serif}.try{margin:18px 0 0;font:600 15px -apple-system,system-ui,sans-serif}.try a{border:1px solid var(--sun);border-radius:999px;padding:8px 14px;text-decoration:none;display:inline-block}.try a:hover{background:var(--sun);color:#221a05}.how{color:var(--muted);font:15px/1.6 -apple-system,system-ui,sans-serif}.nulls{padding-left:1.1em}.nulls li{margin:10px 0}.nulls b{color:var(--text)}.chart{margin:18px 0 4px;font-family:-apple-system,system-ui,sans-serif;position:relative}.chart svg{width:100%;height:auto;display:block;overflow:visible}.chart text{fill:var(--muted);font-size:12px}.chart .label{fill:var(--text);font-size:13px}.legend{color:var(--muted);flex-wrap:wrap;gap:16px;margin-top:4px;font:13px -apple-system,system-ui,sans-serif;display:flex}.legend i{vertical-align:-1px;border-radius:3px;width:12px;height:12px;margin-right:6px;display:inline-block}.tip{pointer-events:none;border:1px solid var(--line);white-space:nowrap;z-index:2;background:#14170f;border-radius:8px;padding:6px 8px;font-size:12px;line-height:1.4;display:none;position:absolute}details{color:var(--muted);margin-top:8px;font:13px -apple-system,system-ui,sans-serif}summary{cursor:pointer}table{border-collapse:collapse;margin-top:6px}td,th{text-align:right;font-variant-numeric:tabular-nums;padding:2px 10px 2px 0}th:first-child,td:first-child{text-align:left}@media (width<=860px){.plate{margin:0 0 22px}.plate figcaption{margin:12px 0 0}}@media (width<=600px){body{font-size:17px}.hero{min-height:70vh}.topbar{padding:12px 16px}.heroText,.tray,main{padding-left:16px;padding-right:16px}.tray{grid-template-columns:repeat(2,1fr)}.plate .art{border-radius:10px;box-shadow:0 0 0 1px #0d0f0a,0 0 0 3px #23271c}}</style>
+    <script type="module" crossorigin src="/evosim/assets/discoveries-DSYm9PJR.js"></script>
+    <link rel="modulepreload" crossorigin href="/evosim/assets/600-DkBNUfo4.js">
+    <link rel="stylesheet" crossorigin href="/evosim/assets/600-B6Zynd6j.css">
+  </head>
+  <body>
+    <header class="hero">
+      <div class="art" data-art="hero"></div>
+      <div class="topbar">
+        <a href="./"><span lang="en">← Back to the simulator</span><span lang="pl">← Wróć do symulatora</span></a>
+        <button id="langSwitch" title="Language / Język"></button>
+      </div>
+      <div class="heroText">
+        <h1><span lang="en">Discoveries</span><span lang="pl">Odkrycia</span></h1>
+        <p class="lead">
+        <span lang="en">What we found by running experiments on this world. Before each test we wrote down what result would count as a yes and what as a no, and never changed it afterwards. Failures are here too.</span>
+        <span lang="pl">Co odkryliśmy, robiąc eksperymenty na tym świecie. Przed każdym testem zapisywaliśmy, jaki wynik oznacza „tak”, a jaki „nie”, i nigdy potem tego nie zmienialiśmy. Porażki też tu są.</span>
+        </p>
+      </div>
+    </header>
+    <nav class="tray" aria-label="Discoveries">
+      <a href="#d1"><div class="art" data-art="hunters"></div><span><small><span lang="en">Discovery 1</span><span lang="pl">Odkrycie 1</span></small><span lang="en">Hunters and prey drive a cycle</span><span lang="pl">Łowcy i ofiary napędzają cykl</span></span></a>
+      <a href="#d2"><div class="art" data-art="islands"></div><span><small><span lang="en">Discovery 2</span><span lang="pl">Odkrycie 2</span></small><span lang="en">Islands make new species</span><span lang="pl">Wyspy tworzą nowe gatunki</span></span></a>
+      <a href="#d3"><div class="art" data-art="learning"></div><span><small><span lang="en">Discovery 3</span><span lang="pl">Odkrycie 3</span></small><span lang="en">Learning during life does not pay off</span><span lang="pl">Uczenie się w czasie życia się nie opłaca</span></span></a>
+      <a href="#d4"><div class="art" data-art="tape"></div><span><small><span lang="en">Discovery 4</span><span lang="pl">Odkrycie 4</span></small><span lang="en">Replaying the tape of life</span><span lang="pl">Przewijanie taśmy życia</span></span></a>
+      <a href="#d5"><div class="art" data-art="colonies"></div><span><small><span lang="en">Discovery 5</span><span lang="pl">Odkrycie 5</span></small><span lang="en">Two ways to escape a hunter: grow big or stick together</span><span lang="pl">Dwa sposoby na łowcę: urosnąć albo trzymać się razem</span></span></a>
+      <a href="#d6"><div class="art" data-art="armor"></div><span><small><span lang="en">Discovery 6</span><span lang="pl">Odkrycie 6</span></small><span lang="en">Armor beats growing big</span><span lang="pl">Pancerz jest lepszy niż urośnięcie</span></span></a>
+      <a href="#d7"><div class="art" data-art="klepto"></div><span><small><span lang="en">Discovery 7</span><span lang="pl">Odkrycie 7</span></small><span lang="en">Stolen chloroplasts make cannibal giants, and armor stops them</span><span lang="pl">Kradzione chloroplasty tworzą olbrzymy-kanibale, a pancerz je powstrzymuje</span></span></a>
+      <a href="#d8"><div class="art" data-art="sleep"></div><span><small><span lang="en">Discovery 8</span><span lang="pl">Odkrycie 8</span></small><span lang="en">Cells learned to sleep at night</span><span lang="pl">Komórki nauczyły się spać nocą</span></span></a>
+      <a href="#d9"><div class="art" data-art="organelle"></div><span><small><span lang="en">Discovery 9</span><span lang="pl">Odkrycie 9</span></small><span lang="en">Stolen chloroplasts turn into organelles</span><span lang="pl">Kradzione chloroplasty stają się organellami</span></span></a>
+      <a href="#d10"><div class="art" data-art="soil"></div><span><small><span lang="en">Discovery 10</span><span lang="pl">Odkrycie 10</span></small><span lang="en">Poor soil makes bigger cells</span><span lang="pl">Uboga gleba daje większe komórki</span></span></a>
+      <a href="#d11"><div class="art" data-art="fixing"></div><span><small><span lang="en">Discovery 11</span><span lang="pl">Odkrycie 11</span></small><span lang="en">Cells learn to fix nitrogen and fertilize their world</span><span lang="pl">Komórki uczą się wiązać azot i nawożą swój świat</span></span></a>
+      <a href="#d12"><div class="art" data-art="virulence"></div><span><small><span lang="en">Discovery 12</span><span lang="pl">Odkrycie 12</span></small><span lang="en">Neighbours keep parasites mild</span><span lang="pl">Sąsiedztwo łagodzi pasożyty</span></span></a>
+      <a href="#nulls"><div class="art" data-art="learning" style="filter: grayscale(0.8) brightness(0.7)"></div><span><small><span lang="en">Also results</span><span lang="pl">To też wyniki</span></small><span lang="en">What we did not find</span><span lang="pl">Czego nie znaleźliśmy</span></span></a>
+    </nav>
+    <main>
+
+      <section id="d1">
+        <div class="num"><span lang="en">Discovery 1</span><span lang="pl">Odkrycie 1</span></div>
+        <h2><span lang="en">Hunters and prey drive a cycle</span><span lang="pl">Łowcy i ofiary napędzają cykl</span></h2>
+        <figure class="plate"><div class="art" data-art="hunters"></div><figcaption><span lang="en">Drawing: A big cell with a glowing mouth chases a crowd of small green ones.</span><span lang="pl">Rysunek: Duża komórka ze świecącymi ustami goni gromadę małych, zielonych.</span></figcaption></figure>
+        <p>
+          <span lang="en">Left alone, the average cell keeps switching between small (about 2 px) and big (2.5 px and more). Nobody programmed this. First the population grows, then more cells get eaten, and then the cells grow bigger. This is the classic predator–prey cycle known from biology.</span>
+          <span lang="pl">Pozostawiona sama sobie przeciętna komórka co jakiś czas zmienia się z małej (ok. 2 px) w dużą (2,5 px i więcej) i z powrotem. Nikt tego nie zaprogramował. Najpierw rośnie populacja, potem więcej komórek zostaje zjedzonych, a potem komórki rosną. To klasyczny cykl drapieżnik–ofiara znany z biologii.</span>
+        </p>
+        <div class="chart" id="cycleChart"></div>
+        <p class="how">
+          <span lang="en">How we know: we switched eating off and kept everything else the same. With eating, 3 of 4 worlds cycled; without it, 0 of 4. Then we checked what comes first in each switch: the population peak came before the eating in 3 of 4 switches.</span>
+          <span lang="pl">Skąd wiemy: wyłączyliśmy zjadanie, a resztę zostawiliśmy bez zmian. Ze zjadaniem cykl pojawił się w 3 z 4 światów, bez niego w 0 z 4. Potem sprawdziliśmy, co jest pierwsze przy każdym przeskoku: szczyt populacji wyprzedzał zjadanie w 3 z 4 przeskoków.</span>
+        </p>
+      </section>
+
+      <section id="d2">
+        <div class="num"><span lang="en">Discovery 2</span><span lang="pl">Odkrycie 2</span></div>
+        <h2><span lang="en">Islands make new species</span><span lang="pl">Wyspy tworzą nowe gatunki</span></h2>
+        <figure class="plate"><div class="art" data-art="islands"></div><figcaption><span lang="en">Drawing: Two islands split by a dark strip: each grows its own kind of cell.</span><span lang="pl">Rysunek: Dwie wyspy rozdzielone ciemnym pasem: na każdej rośnie inny rodzaj komórek.</span></figcaption></figure>
+        <p>
+          <span lang="en">We split the world into two islands with dark strips in between; the bottom island gets a little less light. Cells never swim into the dark, so the two families evolve apart. After 20,000 ticks, cells from different islands can almost never have children together, and when the strips are removed they hardly mix: 3 mixed births out of 5,097.</span>
+          <span lang="pl">Podzieliliśmy świat na dwie wyspy z ciemnymi pasami pomiędzy, a dolna wyspa dostaje trochę mniej światła. Komórki nigdy nie wpływają w ciemność, więc obie rodziny ewoluują osobno. Po 20 tys. ticków komórki z różnych wysp prawie nigdy nie mogą mieć razem dzieci, a po usunięciu pasów prawie się nie mieszają: 3 mieszane porody na 5097.</span>
+        </p>
+        <div class="chart" id="islandsChart"></div>
+        <p class="how">
+          <span lang="en">The bars compare a pair from different islands with a pair from the same island: 100% would mean the islands make no difference. The control has the same two suns but no dark strips. Islands came out far lower in all 4 worlds. Note: cells are picky about partners everywhere, so all numbers are small.</span>
+          <span lang="pl">Słupki porównują parę z różnych wysp z parą z tej samej wyspy: 100% oznaczałoby, że wyspy nic nie zmieniają. Kontrola ma te same dwa słońca, ale bez ciemnych pasów. Wyspy wypadły dużo niżej we wszystkich 4 światach. Uwaga: komórki są wybredne wszędzie, więc wszystkie liczby są małe.</span>
+        </p>
+        <p class="try"><a href="./?laws=islands"><span lang="en">Try it in the simulator →</span><span lang="pl">Zobacz w symulatorze →</span></a></p>
+      </section>
+
+      <section id="d3">
+        <div class="num"><span lang="en">Discovery 3</span><span lang="pl">Odkrycie 3</span></div>
+        <h2><span lang="en">Learning during life does not pay off</span><span lang="pl">Uczenie się w czasie życia się nie opłaca</span></h2>
+        <figure class="plate"><div class="art" data-art="learning"></div><figcaption><span lang="en">Drawing: A cell with a learning brain, between poison (violet) and food (brown specks).</span><span lang="pl">Rysunek: Komórka z uczącym się mózgiem, między trucizną (fiolet) a jedzeniem (brązowe drobinki).</span></figcaption></figure>
+        <p>
+          <span lang="en">We gave cells a gene for learning: a brain that changes during life after a reward (more energy than usual, or eating prey) and a punishment (poison). If learning helped, evolution would push the gene up. It did the opposite: with learning switched on, the gene ended lower than in the control, where it changes by chance only.</span>
+          <span lang="pl">Daliśmy komórkom gen uczenia się: mózg zmienia się w czasie życia po nagrodzie (więcej energii niż zwykle albo zjedzenie ofiary) i po karze (trucizna). Gdyby uczenie pomagało, ewolucja podniosłaby ten gen. Stało się odwrotnie: z działającym uczeniem gen skończył niżej niż w kontroli, gdzie zmienia się tylko przypadkiem.</span>
+        </p>
+        <div class="chart" id="learningChart"></div>
+        <p class="how">
+          <span lang="en">Two tests with two kinds of reward, 8 worlds: learning lost in 6 of them. We thought the reason was a world without real dangers, so we tried again three times with hunters: cells eating each other more often, then hunters from outside, then hunters that can eat any cell. Learning never won clearly, and in the last test it lost again in 6 of 8 worlds. The same happened to a light signal that cells could flash at each other: it never started to mean anything.</span>
+          <span lang="pl">Dwa testy z dwoma rodzajami nagrody, 8 światów: uczenie przegrało w 6 z nich. Myśleliśmy, że to dlatego, że w świecie nie ma prawdziwych zagrożeń, więc próbowaliśmy jeszcze trzy razy z łowcami: częstsze zjadanie się nawzajem, potem łowcy z zewnątrz, a w końcu łowcy, którzy mogą zjeść każdą komórkę. Uczenie ani razu wyraźnie nie wygrało, a w ostatnim teście znowu przegrało w 6 z 8 światów. Tak samo wyszło ze świeceniem, którym komórki mogły dawać sobie znaki: nigdy nie zaczęło nic znaczyć.</span>
+        </p>
+      </section>
+
+      <section id="d4">
+        <div class="num"><span lang="en">Discovery 4</span><span lang="pl">Odkrycie 4</span></div>
+        <h2><span lang="en">Replaying the tape of life</span><span lang="pl">Przewijanie taśmy życia</span></h2>
+        <figure class="plate"><div class="art" data-art="tape"></div><figcaption><span lang="en">Drawing: Replays swing between many small cells and a few bigger ones: two phases of one cycle.</span><span lang="pl">Rysunek: Powtórki przechodzą od wielu małych komórek do kilku większych: dwie fazy jednego cyklu.</span></figcaption></figure>
+        <p>
+          <span lang="en">Biologist Stephen Jay Gould asked: if we replayed the history of life, would it turn out the same? We can do it. We took a world, went back in time and replayed it 8 times with new randomness. Each time, worlds ended in one of two states, small cells in big numbers or bigger cells in small numbers. Longer runs showed these are not two fates but two phases of the same cycle from discovery 1: chance decides where in the cycle a world is, not which world it becomes.</span>
+          <span lang="pl">Biolog Stephen Jay Gould pytał: gdyby puścić historię życia od nowa, czy wyszłoby to samo? My możemy to zrobić. Wzięliśmy świat, cofnęliśmy czas i puściliśmy go 8 razy z nowym przypadkiem. Za każdym razem światy kończyły w jednym z dwóch stanów: dużo małych komórek albo mało większych. Dłuższe przebiegi pokazały, że to nie dwa losy, tylko dwie fazy tego samego cyklu z odkrycia 1. Przypadek decyduje, w którym miejscu cyklu jest świat, a nie jakim światem się stanie.</span>
+        </p>
+      </section>
+
+      <section id="d5">
+        <div class="num"><span lang="en">Discovery 5</span><span lang="pl">Odkrycie 5</span></div>
+        <h2><span lang="en">Two ways to escape a hunter: grow big or stick together</span><span lang="pl">Dwa sposoby na łowcę: urosnąć albo trzymać się razem</span></h2>
+        <figure class="plate"><div class="art" data-art="colonies"></div><figcaption><span lang="en">Drawing: The hunter (centre) can swallow neither the big cell (left) nor the colony (right).</span><span lang="pl">Rysunek: Łowca (w środku) nie połknie ani dużej komórki (po lewej), ani kolonii (po prawej).</span></figcaption></figure>
+        <p>
+          <span lang="en">We added hunters from outside that chase cells but can only swallow cells up to 4 px. In 14 of 32 runs the cells simply outgrew them: the average cell became bigger than 4 px, and the hunters had nothing left to eat. Being big has a price, though: those worlds kept only about 160 cells instead of about 1,500. When the hunters could eat cells of any size, no world grew big.</span>
+          <span lang="pl">Dodaliśmy łowców z zewnątrz, którzy gonią komórki, ale mogą połknąć tylko te do 4 px. W 14 z 32 przebiegów komórki po prostu przerosły łowców: przeciętna komórka urosła ponad 4 px i łowcy nie mieli już czego jeść. Bycie dużym ma jednak cenę: w tych światach zostało tylko ok. 160 komórek zamiast ok. 1500. Gdy łowcy mogli jeść komórki każdej wielkości, żaden świat nie urósł.</span>
+        </p>
+        <div class="chart" id="escapeChart"></div>
+        <p>
+          <span lang="en">The second way: we made cells in a group of 3 or more safe from hunters. More hunters meant more cells living in colonies, as in real experiments where algae start forming colonies when a predator appears. But the colonies never split work: cells did not divide into "plants" and "swimmers", even when swimming made photosynthesis worse and the whole colony moved as one body. Members just became weaker at everything, living on energy shared by their neighbours.</span>
+          <span lang="pl">Drugi sposób: komórki w grupie liczącej 3 i więcej sztuk były bezpieczne przed łowcą. Im więcej łowców, tym więcej komórek żyło w koloniach, jak w prawdziwych doświadczeniach, w których glony zaczynają tworzyć kolonie, gdy pojawi się drapieżnik. Ale kolonie nigdy nie podzieliły się pracą: komórki nie rozdzieliły się na „rośliny” i „pływaków”, nawet gdy pływanie psuło fotosyntezę, a cała kolonia pływała jak jedno ciało. Członkowie po prostu słabli we wszystkim, żyjąc z energii od sąsiadów.</span>
+        </p>
+        <p class="how">
+          <span lang="en">Each dot is one run, 20,000 ticks in a small world. The dashed line is the biggest cell the first kind of hunter can eat. Division of labour: two tests with a role measure, 16 worlds, opposite roles in 1 of them.</span>
+          <span lang="pl">Każda kropka to jeden przebieg, 20 tys. ticków w małym świecie. Linia przerywana to największa komórka, jaką może zjeść pierwszy rodzaj łowcy. Podział pracy: dwa testy z miarą ról, 16 światów, przeciwne role w 1 z nich.</span>
+        </p>
+      </section>
+
+      <section id="d6">
+        <div class="num"><span lang="en">Discovery 6</span><span lang="pl">Odkrycie 6</span></div>
+        <h2><span lang="en">Armor beats growing big</span><span lang="pl">Pancerz jest lepszy niż urośnięcie</span></h2>
+        <figure class="plate"><div class="art" data-art="armor"></div><figcaption><span lang="en">Drawing: Small cells in brown armor; the hunter's jaws bounce off.</span><span lang="pl">Rysunek: Małe komórki w brązowym pancerzu; szczęki łowcy się odbijają.</span></figcaption></figure>
+        <p>
+          <span lang="en">We gave cells two new genes: armor, which can stop a bite, and jaws, which break through armor. Both cost energy, and armor is heavy. Armor paid off in 13 of 16 worlds, and cells with armor stayed small: they no longer had to outgrow their eaters (8 of 8 worlds). Only cells with strong jaws still managed to eat, with jaws twice as strong as the average. But we found no endless race: armor slowly faded, and eating either died out or went on. The biggest effect is on the whole world: with armor, worlds kept over 3 times more cells.</span>
+          <span lang="pl">Daliśmy komórkom dwa nowe geny: pancerz, który może odbić ugryzienie, i szczęki, które przebijają pancerz. Oba kosztują energię, a pancerz jest ciężki. Pancerz opłacił się w 13 z 16 światów, a komórki z pancerzem zostały małe: nie musiały już przerastać zjadających (8 z 8 światów). Jeść dalej mogły tylko komórki z mocnymi szczękami, dwa razy mocniejszymi od przeciętnych. Nie znaleźliśmy jednak niekończącego się wyścigu: pancerz powoli słabł, a zjadanie albo gasło, albo trwało. Największy efekt widać w całym świecie: z pancerzem światy miały ponad 3 razy więcej komórek.</span>
+        </p>
+        <div class="chart" id="armorChart"></div>
+        <p class="how">
+          <span lang="en">Population after 100,000 ticks in a small world, 8 worlds. The control has the same genes at the same cost, but they never stop a bite.</span>
+          <span lang="pl">Populacja po 100 tys. ticków w małym świecie, 8 światów. Kontrola ma te same geny za tę samą cenę, ale nigdy nie odbijają ugryzienia.</span>
+        </p>
+        <p class="try"><a href="./?laws=arms"><span lang="en">Try it in the simulator →</span><span lang="pl">Zobacz w symulatorze →</span></a></p>
+      </section>
+
+      <section id="d7">
+        <div class="num"><span lang="en">Discovery 7</span><span lang="pl">Odkrycie 7</span></div>
+        <h2><span lang="en">Stolen chloroplasts make cannibal giants, and armor stops them</span><span lang="pl">Kradzione chloroplasty tworzą olbrzymy-kanibale, a pancerz je powstrzymuje</span></h2>
+        <figure class="plate"><div class="art" data-art="klepto"></div><figcaption><span lang="en">Drawing: A giant full of stolen chloroplasts (bright green) swallows a small cell; armored ones are safe.</span><span lang="pl">Rysunek: Olbrzym pełen kradzionych chloroplastów (jasnozielone) połyka małą komórkę; te w pancerzu są bezpieczne.</span></figcaption></figure>
+        <p>
+          <span lang="en">Some sea slugs and ciliates keep the chloroplasts of the algae they eat and photosynthesize with them. We let our eaters do the same. The result was a disaster: cells grew twice as big, bit more, made less of their own chlorophyll and ate up the small plants they depended on. Populations collapsed in 8 of 8 worlds, and some died out.</span>
+          <span lang="pl">Niektóre ślimaki morskie i orzęski zatrzymują chloroplasty zjedzonych glonów i robią z nimi fotosyntezę. Pozwoliliśmy na to naszym zjadającym. Skutek był katastrofalny: komórki urosły dwa razy, gryzły więcej, miały mniej własnych chloroplastów i wyjadły małe rośliny, od których zależały. Populacja załamała się w 8 z 8 światów, a część wymarła.</span>
+        </p>
+        <div class="chart" id="kleptoChart"></div>
+        <p>
+          <span lang="en">Then we gave the small plants armor too. Now the giants could not feed, they disappeared in 7 of 8 worlds, and every world had more cells: about 7 times more in all. Whether eaters wipe out their prey depends on whether the prey can defend itself.</span>
+          <span lang="pl">Potem daliśmy pancerz także małym roślinom. Olbrzymy nie miały już z czego żyć i zniknęły w 7 z 8 światów, a każdy świat miał więcej komórek: razem ok. 7 razy więcej. To, czy zjadający wyniszczą ofiary, zależy od tego, czy ofiary potrafią się bronić.</span>
+        </p>
+        <div class="chart" id="kleptoArmorChart"></div>
+        <p class="how">
+          <span lang="en">Population after 20,000 ticks in a small world, 8 new worlds in each chart. A world that died out shows 0. Both results held in the big world too: giants grew in 7 of 8 worlds (2 died out), and armor saved 8 of 8.</span>
+          <span lang="pl">Populacja po 20 tys. ticków w małym świecie, w każdym wykresie 8 nowych światów. Świat, który wymarł, ma 0. Oba wyniki potwierdziły się też w dużym świecie: olbrzymy wyrosły w 7 z 8 światów (2 wymarły), a pancerz uratował 8 z 8.</span>
+        </p>
+        <p class="try"><a href="./?laws=klepto"><span lang="en">Try the giants →</span><span lang="pl">Zobacz olbrzymy →</span></a></p>
+        <p class="try"><a href="./?laws=klepto,arms"><span lang="en">Try the giants against armor →</span><span lang="pl">Zobacz olbrzymy przeciw pancerzowi →</span></a></p>
+      </section>
+
+      <section id="d8">
+        <div class="num"><span lang="en">Discovery 8</span><span lang="pl">Odkrycie 8</span></div>
+        <h2><span lang="en">Cells learned to sleep at night</span><span lang="pl">Komórki nauczyły się spać nocą</span></h2>
+        <figure class="plate"><div class="art" data-art="sleep"></div><figcaption><span lang="en">Drawing: Day on the left, night on the right: at night cells rest as round cysts.</span><span lang="pl">Rysunek: Po lewej dzień, po prawej noc: nocą komórki odpoczywają jako okrągłe cysty.</span></figcaption></figure>
+        <p>
+          <span lang="en">We gave cells a sleep gene: a light level below which the cell rests as a cyst, paying only a fifth of its upkeep but unable to move, eat or divide. Every world kept sleeping: at midnight 83–98% of cells were cysts, and at noon none. Nobody evolved to sleep by day. Sleeping worlds held about 1.4 times more cells (13 of 16 worlds).</span>
+          <span lang="pl">Daliśmy komórkom gen snu: poziom światła, poniżej którego komórka odpoczywa jako cysta. Płaci wtedy tylko jedną piątą kosztu życia, ale nie może pływać, jeść ani się dzielić. Każdy świat zachował sen: o północy 83–98% komórek było cystami, a w południe żadna. Nikt nie zaczął spać w dzień. Śpiące światy miały ok. 1,4 raza więcej komórek (13 z 16 światów).</span>
+        </p>
+        <div class="chart" id="sleepChart"></div>
+        <p class="how">
+          <span lang="en">Population after 20,000 ticks in a small world, 8 new worlds. The control has the same gene, but it never puts the cell to sleep. The result held in the big world too: more cells in 8 of 8 worlds.</span>
+          <span lang="pl">Populacja po 20 tys. ticków w małym świecie, 8 nowych światów. Kontrola ma ten sam gen, ale nigdy nie usypia komórki. Wynik potwierdził się też w dużym świecie: więcej komórek w 8 z 8 światów.</span>
+        </p>
+        <p class="try"><a href="./?laws=sleep"><span lang="en">Try it in the simulator →</span><span lang="pl">Zobacz w symulatorze →</span></a></p>
+      </section>
+
+      <section id="d9">
+        <div class="num"><span lang="en">Discovery 9</span><span lang="pl">Odkrycie 9</span></div>
+        <h2><span lang="en">Stolen chloroplasts turn into organelles</span><span lang="pl">Kradzione chloroplasty stają się organellami</span></h2>
+        <figure class="plate"><div class="art" data-art="organelle"></div><figcaption><span lang="en">Drawing: A dividing cell gives each daughter half of its stolen chloroplasts.</span><span lang="pl">Rysunek: Dzieląca się komórka daje każdej córce połowę kradzionych chloroplastów.</span></figcaption></figure>
+        <p>
+          <span lang="en">Real chloroplasts were once bacteria that a cell swallowed and did not digest. We took the stolen chloroplasts of discovery 7 one step further: a child gets half of its mother's, and a keeper gene lets them last and divide inside the cell, paid with the cell's energy. Cells then held 2 to 6 times more of them and made less chlorophyll of their own, as if handing photosynthesis over to their guests. This happened in 7 of 8 small worlds and 6 of 8 big ones.</span>
+          <span lang="pl">Prawdziwe chloroplasty były kiedyś bakteriami, które jakaś komórka połknęła i nie strawiła. Kradzione chloroplasty z odkrycia 7 posunęliśmy o krok dalej: dziecko dostaje połowę chloroplastów matki, a gen opiekuna pozwala im przetrwać i dzielić się w komórce, za energię komórki. Komórki trzymały wtedy 2 do 6 razy więcej chloroplastów i robiły mniej własnych, jakby oddawały fotosyntezę swoim gościom. Tak było w 7 z 8 małych światów i w 6 z 8 dużych.</span>
+        </p>
+        <div class="chart" id="organelleChart"></div>
+        <p class="how">
+          <span lang="en">The cell's own photosynthesis (0 to 1) in the last 5,000 of 20,000 ticks, small world, 8 new worlds. The control has the same genes at the same cost, and its chloroplasts are inherited too, but the keeper gene does nothing. Whether the keeper gene itself grows was clear only in the small world (7 of 8; big world 5 of 8).</span>
+          <span lang="pl">Własna fotosynteza komórki (od 0 do 1) w ostatnich 5 tys. z 20 tys. ticków, mały świat, 8 nowych światów. Kontrola ma te same geny za tę samą cenę, a jej chloroplasty też się dziedziczą, ale gen opiekuna nic nie robi. To, że rośnie sam gen opiekuna, było jasne tylko w małym świecie (7 z 8; duży świat 5 z 8).</span>
+        </p>
+        <p class="try"><a href="./?laws=organelle"><span lang="en">Try it in the simulator →</span><span lang="pl">Zobacz w symulatorze →</span></a></p>
+      </section>
+
+      <section id="d10">
+        <div class="num"><span lang="en">Discovery 10</span><span lang="pl">Odkrycie 10</span></div>
+        <h2><span lang="en">Poor soil makes bigger cells</span><span lang="pl">Uboga gleba daje większe komórki</span></h2>
+        <figure class="plate"><div class="art" data-art="soil"></div><figcaption><span lang="en">Drawing: Rich soil (left): many small cells. Poor soil (right): a few big ones.</span><span lang="pl">Rysunek: Bogata gleba (po lewej): dużo małych komórek. Uboga (po prawej): kilka dużych.</span></figcaption></figure>
+        <p>
+          <span lang="en">We added a nutrient, like nitrogen: a cell can divide only when it holds enough of it for its body. It comes slowly from the soil, whole from eaten prey, and goes back to the soil at death, so the total never changes. We hoped for carnivorous plants on poor soil, as with sundews and Venus flytraps, but plants did not bite more. Instead cells grew about 30% bigger than on rich soil, in 8 of 8 small worlds and 8 of 8 big ones.</span>
+          <span lang="pl">Dodaliśmy składnik odżywczy, np. azot: komórka może się podzielić tylko wtedy, gdy ma go dość na swoje ciało. Przychodzi powoli z gleby, cały ze zjedzonej ofiary i wraca do gleby po śmierci, więc łączna ilość się nie zmienia. Liczyliśmy na rośliny mięsożerne na ubogiej glebie, jak rosiczki i muchołówki, ale rośliny nie zaczęły gryźć więcej. Za to komórki urosły ok. 30% większe niż na bogatej glebie, w 8 z 8 małych i 8 z 8 dużych światów.</span>
+        </p>
+        <div class="chart" id="soilChart"></div>
+        <p class="how">
+          <span lang="en">Mean cell radius in the last 5,000 of 20,000 ticks, small world, 8 new worlds; poor soil starts with a tenth of the nutrient of rich soil. This is a puzzle: in the sea, poor water favours tiny plankton, because a small cell has more membrane per body. Our cells also take nutrient in through the membrane. Something else wins here. One clue: with 15% less sunlight the difference was less than half as big (6 of 8 worlds), so spare energy seems to matter. Many cells on poor soil sit with enough energy to divide, waiting only for nutrient, so a big body no longer costs them much. That part is not proven yet.</span>
+          <span lang="pl">Średni promień komórki w ostatnich 5 tys. z 20 tys. ticków, mały świat, 8 nowych światów. Uboga gleba ma na starcie dziesięć razy mniej składnika niż bogata. To zagadka: w morzu uboga woda sprzyja drobnemu planktonowi, bo mała komórka ma więcej błony na jednostkę ciała. Nasze komórki też pobierają składnik przez błonę. Tutaj przeważa coś innego. Jedna wskazówka: przy słońcu słabszym o 15% różnica była ponad dwa razy mniejsza (6 z 8 światów), więc liczy się chyba nadmiar energii. Wiele komórek na ubogiej glebie ma dość energii do podziału i czeka tylko na składnik, więc duże ciało niewiele je kosztuje. Tej części jeszcze nie udowodniliśmy.</span>
+        </p>
+        <p class="try"><a href="./?laws=nutrients"><span lang="en">Try it in the simulator →</span><span lang="pl">Zobacz w symulatorze →</span></a></p>
+      </section>
+
+      <section id="d11">
+        <div class="num"><span lang="en">Discovery 11</span><span lang="pl">Odkrycie 11</span></div>
+        <h2><span lang="en">Cells learn to fix nitrogen and fertilize their world</span><span lang="pl">Komórki uczą się wiązać azot i nawożą swój świat</span></h2>
+        <figure class="plate"><div class="art" data-art="fixing"></div><figcaption><span lang="en">Drawing: Cells with pale nitrogen granules fertilize the soil around them; neighbours live off it.</span><span lang="pl">Rysunek: Komórki z jasnymi ziarnami azotu nawożą glebę wokół siebie, a sąsiedzi z tego żyją.</span></figcaption></figure>
+        <p>
+          <span lang="en">On the poor soil of discovery 10 we gave cells one more gene: making nutrient from the air, as the bacteria in bean roots and many cyanobacteria do, paying energy for every unit. The gene grew 4 to 6 times higher than in a control where it did nothing. Fixers fertilized the soil (when they die, their nutrient goes into it), and the worlds held 1.6 to 4.5 times more cells. Cells also shrank back to their usual size. All in 8 of 8 small worlds and 8 of 8 big ones.</span>
+          <span lang="pl">Na ubogiej glebie z odkrycia 10 daliśmy komórkom jeszcze jeden gen: robienie składnika z powietrza, tak jak bakterie w korzeniach fasoli i wiele sinic, za energię za każdą jednostkę. Gen urósł 4 do 6 razy wyżej niż w kontroli, w której nic nie robił. Komórki wiążące azot nawiozły glebę (gdy umierają, ich składnik do niej trafia), a światy miały 1,6 do 4,5 raza więcej komórek. Komórki wróciły też do zwykłego rozmiaru. Wszystko w 8 z 8 małych i 8 z 8 dużych światów.</span>
+        </p>
+        <div class="chart" id="fixingChart"></div>
+        <p class="how">
+          <span lang="en">Population after 20,000 ticks on poor soil, small world, 8 new worlds. The control has the same gene at the same energy cost, but it makes no nutrient. The gene did not climb to the top: cells that live on others' nitrogen do well too. A surprise: on rich soil the gene also did better than in the control (6 of 8 worlds, about twice as high, against 4 times on poor soil). Partly confirmed: a cell can take only a little nitrogen from the soil at a time, so making its own speeds up division even when the soil is full. When cells could take it 20 times faster, the advantage dropped to about 1.2 times.</span>
+          <span lang="pl">Populacja po 20 tys. ticków na ubogiej glebie, mały świat, 8 nowych światów. Kontrola ma ten sam gen za tę samą energię, ale nie robi on składnika. Gen nie urósł do maksimum: dobrze radzą sobie też komórki żyjące z cudzego azotu. Niespodzianka: na bogatej glebie gen też był wyżej niż w kontroli (6 z 8 światów, ok. 2 razy, a na ubogiej 4 razy). Częściowo potwierdzone: komórka może pobrać z gleby naraz tylko trochę azotu, więc własne wiązanie przyspiesza podział nawet przy pełnej glebie. Gdy komórki mogły pobierać 20 razy szybciej, przewaga spadła do ok. 1,2 raza.</span>
+        </p>
+        <p class="try"><a href="./?laws=fixing"><span lang="en">Try it in the simulator →</span><span lang="pl">Zobacz w symulatorze →</span></a></p>
+      </section>
+
+      <section id="d12">
+        <div class="num"><span lang="en">Discovery 12</span><span lang="pl">Odkrycie 12</span></div>
+        <h2><span lang="en">Neighbours keep parasites mild</span><span lang="pl">Sąsiedztwo łagodzi pasożyty</span></h2>
+        <figure class="plate"><div class="art" data-art="virulence"></div><figcaption><span lang="en">Drawing: Left, the strain passes only to neighbours and stays mild. Right, it lands anywhere and turns harsh, and its hosts waste away.</span><span lang="pl">Rysunek: Po lewej szczep przechodzi tylko na sąsiadów i zostaje łagodny. Po prawej trafia gdziekolwiek i staje się zjadliwy, a gospodarze marnieją.</span></figcaption></figure>
+        <p>
+          <span lang="en">We let each parasite strain evolve its virulence: a harsher strain passes on more easily but drains its host faster. When parasites pass only to touching cells, a strain that is too harsh wipes out its own neighbourhood and runs out of hosts. When the same number of contacts lands on random cells anywhere in the world, someone else pays for the harm, and harsh strains win. Parasites evolved 1.8 times harsher when mixed, in 8 of 8 worlds. This is the "tragedy of the commons" that Kerr and colleagues showed with bacteriophages in 2006.</span>
+          <span lang="pl">Pozwoliliśmy każdemu szczepowi pasożyta ewoluować zjadliwość: bardziej zjadliwy łatwiej się przenosi, ale szybciej wysysa gospodarza. Gdy pasożyty przechodzą tylko na sąsiadów, zbyt zjadliwy szczep wyniszcza własną okolicę i kończą mu się gospodarze. Gdy tyle samo kontaktów trafia na losowe komórki w całym świecie, za szkody płaci kto inny i wygrywają zjadliwe szczepy. Przy wymieszaniu pasożyty stały się 1,8 raza bardziej zjadliwe, w 8 z 8 światów. To „tragedia wspólnego pastwiska”, którą Kerr i współpracownicy pokazali w 2006 roku na bakteriofagach.</span>
+        </p>
+        <div class="chart" id="virulenceChart"></div>
+        <p class="how">
+          <span lang="en">Mean virulence of the parasites in sick cells over the last 5,000 of 20,000 ticks, small world, 8 new worlds (0.5 is the strain of the old parasite law). Both kinds of passing have the same number of contacts. Confirmed in the big world: harsher when mixed in 4 of 4 worlds.</span>
+          <span lang="pl">Średnia zjadliwość pasożytów w chorych komórkach w ostatnich 5 tys. z 20 tys. ticków, mały świat, 8 nowych światów (0,5 to szczep ze starego prawa pasożytów). W obu wersjach kontaktów jest tyle samo. Potwierdzone w dużym świecie: przy wymieszaniu bardziej zjadliwe w 4 z 4 światów.</span>
+        </p>
+        <p class="try"><a href="./?laws=virulence"><span lang="en">Try it in the simulator →</span><span lang="pl">Zobacz w symulatorze →</span></a></p>
+      </section>
+
+      <section id="nulls">
+        <div class="num"><span lang="en">Also results</span><span lang="pl">To też wyniki</span></div>
+        <h2><span lang="en">What we looked for and did not find</span><span lang="pl">Czego szukaliśmy i nie znaleźliśmy</span></h2>
+        <div lang="en">
+          <ul class="nulls">
+            <li><b>Endless arms race.</b> Armor and jaws never kept escalating, and they did not chase each other in cycles (16 worlds, 100,000 ticks).</li>
+            <li><b>Sex against parasites.</b> Parasites that chase the most common genes did not make sex pay off (the Red Queen idea), and their effect on the mutation rate did not survive a repeat.</li>
+            <li><b>Cooperation.</b> Cells sharing an enzyme lost it to cheaters, both when the benefit stayed nearby and when it spread over the whole world.</li>
+            <li><b>Shorter lives under predators.</b> An evolving lifespan stayed the same with and without predators, as Abrams (1993) predicted and unlike the simple form of Williams' theory.</li>
+            <li><b>More species thanks to eaters.</b> Eating lowered the number of species, but only because there were fewer cells; per 1,000 cells nothing changed.</li>
+            <li><b>Species along a slope.</b> Along a smooth temperature gradient cells adapted (8 of 8 worlds) but did not split into species, even when they preferred similar partners. Species needed a barrier (discovery 2).</li>
+            <li><b>Night hunters.</b> When almost everyone slept at night, no hunters evolved to eat the sleepers: eaters slept like everyone else.</li>
+            <li><b>Winter sleep.</b> With seasons, cells did not sleep through dark winter days (1–12% asleep at a winter noon); every winter simply shrank the world to a few dozen cells.</li>
+            <li><b>Dwarfs from "fishing".</b> Hunters that took only the bigger cells did not make cells smaller (5 of 8 worlds): our cells are already close to the smallest size allowed.</li>
+            <li><b>Less sleep under hunters.</b> With 10 hunters cells slept at night as much as without them (less in only 3 of 8 worlds): a hunter catches the nearest cell, swimming or not.</li>
+            <li><b>Rock, paper, scissors with poison.</b> Poisoners, resistant and sensitive cells did not settle into the game known from bacteria (Kerr 2002): our cells swim around too much to keep fixed neighbours. We found no setting worth a test.</li>
+            <li><b>Clumping for a shared enzyme.</b> Sharing an enzyme's food nearby did not make cells stick together into colonies (5 of 8 worlds, 40,000 ticks).</li>
+            <li><b>The paradox of enrichment.</b> Rich soil made populations swing about twice as much as poor soil (8 of 8 worlds), as Rosenzweig (1971) predicted. But it did so just as well without any eating, so the reason is not the one in the theory (eaters overshooting their prey).</li>
+            <li><b>Oxygen pulling eaters to plants.</b> When food burns fully only with oxygen from photosynthesis, eaters did not keep closer to plants and did not take up photosynthesis themselves: the oxygen spread everywhere anyway (8 worlds).</li>
+            <li><b>A selfish herd.</b> Hunters that take the nearest cell did not teach cells to keep together once sticking into colonies was switched off (8 worlds).</li>
+          </ul>
+        </div>
+        <div lang="pl">
+          <ul class="nulls">
+            <li><b>Niekończący się wyścig zbrojeń.</b> Pancerz i szczęki nie rosły bez końca i nie goniły się w cyklach (16 światów, 100 tys. ticków).</li>
+            <li><b>Płeć przeciw pasożytom.</b> Pasożyty goniące najczęstsze geny nie sprawiły, że płeć się opłaca (hipoteza Czerwonej Królowej), a ich wpływ na tempo mutacji nie przetrwał powtórki.</li>
+            <li><b>Współpraca.</b> Komórki dzielące się enzymem traciły go na rzecz oszustów, i gdy korzyść zostawała blisko, i gdy rozchodziła się po całym świecie.</li>
+            <li><b>Krótsze życie przy drapieżnikach.</b> Ewoluująca długość życia była taka sama z drapieżnikami i bez nich. Tak przewidział Abrams (1993), a nie prosta wersja teorii Williamsa.</li>
+            <li><b>Więcej gatunków dzięki zjadającym.</b> Zjadanie zmniejszyło liczbę gatunków, ale tylko dlatego, że komórek było mniej. Na 1000 komórek nic się nie zmieniło.</li>
+            <li><b>Gatunki wzdłuż zbocza.</b> Wzdłuż łagodnego gradientu temperatury komórki się przystosowały (8 z 8 światów), ale nie podzieliły się na gatunki, nawet gdy wybierały podobnych partnerów. Do gatunków potrzebna była bariera (odkrycie 2).</li>
+            <li><b>Nocni łowcy.</b> Gdy nocą prawie wszyscy spali, nie powstali łowcy zjadający śpiących. Zjadający spali jak wszyscy.</li>
+            <li><b>Sen zimowy.</b> Przy porach roku komórki nie przesypiały ciemnych zimowych dni (w zimowe południe spało 1–12%). Każda zima po prostu zmniejszała świat do kilkudziesięciu komórek.</li>
+            <li><b>Karły od „połowów”.</b> Łowcy biorący tylko większe komórki nie sprawili, że komórki zmalały (5 z 8 światów). Nasze komórki są już blisko najmniejszego dozwolonego rozmiaru.</li>
+            <li><b>Krótszy sen przy łowcach.</b> Przy 10 łowcach komórki spały nocą tyle samo co bez nich (mniej tylko w 3 z 8 światów). Łowca łapie najbliższą komórkę, czy pływa, czy nie.</li>
+            <li><b>Papier, kamień, nożyce z trucizną.</b> Truciciele, odporni i wrażliwi nie ułożyli się w grę znaną z bakterii (Kerr 2002). Nasze komórki za dużo pływają, żeby mieć stałych sąsiadów. Nie znaleźliśmy ustawienia wartego testu.</li>
+            <li><b>Zlepianie się dla wspólnego enzymu.</b> Gdy pokarm z enzymu zostawał blisko, komórki i tak nie sklejały się w kolonie (5 z 8 światów, 40 tys. ticków).</li>
+            <li><b>Paradoks wzbogacenia.</b> Bogata gleba rozhuśtała populację mniej więcej dwa razy bardziej niż uboga (8 z 8 światów), tak jak przewidział Rosenzweig (1971). Ale tak samo było bez żadnego zjadania, więc przyczyna nie jest ta z teorii (zjadający, którzy przetrzebiają ofiary).</li>
+            <li><b>Tlen przyciągający zjadających do roślin.</b> Gdy jedzenie spala się w pełni tylko z tlenem z fotosyntezy, zjadający nie trzymali się bliżej roślin ani sami nie zaczęli robić fotosyntezy: tlen i tak rozchodził się wszędzie (8 światów).</li>
+            <li><b>Samolubne stado.</b> Łowcy, którzy biorą najbliższą komórkę, nie nauczyli komórek trzymać się razem, gdy wyłączyliśmy sklejanie w kolonie (8 światów).</li>
+          </ul>
+        </div>
+        <p class="how">
+          <span lang="en">Each of these had a rule written down before the test, a control world and 8 or 16 new worlds. "Not found" means the rule was not met, not that it can never happen.</span>
+          <span lang="pl">Każdy z tych testów miał regułę zapisaną przed startem, świat kontrolny i 8 albo 16 nowych światów. „Nie znaleźliśmy” znaczy, że reguła nie została spełniona, a nie że to nigdy nie może się zdarzyć.</span>
+        </p>
+      </section>
+
+      <p class="how">
+        <span lang="en">Every result has a numbered entry, with the rule written before the test, in the project's lab notebook. Numbers come from the real runs.</span>
+        <span lang="pl">Każdy wynik ma ponumerowany wpis w dzienniku laboratoryjnym projektu, z regułą zapisaną przed testem. Liczby pochodzą z prawdziwych przebiegów.</span>
+      </p>
+    </main>
+  </body>
+</html>
